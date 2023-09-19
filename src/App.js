@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import SignIn from './components/auth/SignIn.jsx'
+import AuthDetails from './components/AuthDetails.jsx';
+import Home from './Pages/Home/Home.jsx';
 
 function App() {
+  const [signedIn, setSignedIn] = React.useState(false)
+  console.log(signedIn)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {signedIn ? <React.Fragment>
+        <AuthDetails 
+          setSignedIn = {e=> setSignedIn(e)}
+        />
+        <Home />
+      </React.Fragment> : ''}
+      {signedIn ? '': <SignIn
+        setSignedIn = {e=> setSignedIn(e)}
+      />}
     </div>
   );
 }
