@@ -49,6 +49,10 @@
   border: 1px solid #6a6ac5;
 }
 
+.gallery .galleryContainer .cards p {
+  font-family: 'QuickSand', sans-serif;
+}
+
 @media only screen and (max-width: 680px) {
   .gallery .galleryContainer .cards {
     width: 100%;
