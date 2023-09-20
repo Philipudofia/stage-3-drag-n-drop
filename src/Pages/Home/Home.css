@@ -42,7 +42,8 @@
   -o-object-fit: cover;
      object-fit: cover;
   margin-top: 3rem;
-  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
 }
 
 .gallery .galleryContainer .cards img:hover {
