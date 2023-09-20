@@ -119,7 +119,17 @@ const onDragEnd = (e) =>{
         <Home 
           cards = {
               <>
-                <DndContext
+                {query?<DndContext
+                      collisionDetection={closestCenter}
+                      onDragEnd={onDragEnd}>
+                      <SortableContext items={imageItem} >
+                          {imageItem.filter((e) =>{
+                            return e.tag.toLowerCase().includes(query)
+                          }).map((item, index) =>{
+                            return <SortableUser key={index} item={item} />
+                          })}
+                      </SortableContext>
+                    </DndContext> :<DndContext
                       collisionDetection={closestCenter}
                       onDragEnd={onDragEnd}>
                       <SortableContext items={imageItem} >
@@ -127,7 +137,7 @@ const onDragEnd = (e) =>{
                             return <SortableUser key={index} item={item} />
                           })}
                       </SortableContext>
-                    </DndContext>
+                    </DndContext>}
               </>
               }
         />
